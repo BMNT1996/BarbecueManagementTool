@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.practice.BarbecueManagementTool.models.Role;
 
 @Repository
-public interface RoleRepository extends JpaRepository<Role, Integer>{
-    Optional<Role> findByAuthority(String authority);
+public interface RoleRepository extends JpaRepository<Role, Integer> {
+	Optional<Role> findByAuthority(String authority);
 }

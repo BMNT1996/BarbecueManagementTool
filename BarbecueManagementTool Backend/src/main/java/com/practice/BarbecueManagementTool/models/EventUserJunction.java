@@ -1,50 +1,37 @@
 package com.practice.BarbecueManagementTool.models;
 
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "event_user_junction")
 public class EventUserJunction {
 
-	@Id
-	@ManyToOne
-	@JoinColumn(name = "event_id")
-	private Event event;
-	@Id
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private ApplicationUser user;
+	@EmbeddedId
+	private EventUserJunctionId eventUserJunctionId;
+
 	private Boolean accepted;
+
+	private Boolean isOwner;
 
 	public EventUserJunction() {
 		super();
 	}
 
-	public EventUserJunction(Event event, ApplicationUser user, Boolean accepted) {
+	public EventUserJunction(EventUserJunctionId eventUserJunctionId, Boolean accepted, Boolean isOwner) {
 		super();
-		this.event = event;
-		this.user = user;
+		this.eventUserJunctionId = eventUserJunctionId;
 		this.accepted = accepted;
+		this.isOwner = isOwner;
 	}
 
-	public Event getEvent() {
-		return event;
+	public EventUserJunctionId getEventUserJunctionId() {
+		return eventUserJunctionId;
 	}
 
-	public void setEvent(Event event) {
-		this.event = event;
-	}
-
-	public ApplicationUser getUser() {
-		return user;
-	}
-
-	public void setUser(ApplicationUser user) {
-		this.user = user;
+	public void setEventUserJunctionId(EventUserJunctionId eventUserJunctionId) {
+		this.eventUserJunctionId = eventUserJunctionId;
 	}
 
 	public Boolean getAccepted() {
@@ -55,4 +42,11 @@ public class EventUserJunction {
 		this.accepted = accepted;
 	}
 
+	public Boolean getIsOwner() {
+		return isOwner;
+	}
+
+	public void setIsOwner(Boolean isOwner) {
+		this.isOwner = isOwner;
+	}
 }

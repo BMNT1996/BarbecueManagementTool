@@ -16,16 +16,18 @@ public class Product {
 	@Column(unique = true)
 	private String name;
 	private ProductType productType;
+	private Boolean isBaseProduct;
 
 	public Product() {
 		super();
 	}
 
-	public Product(Integer productId, String name, ProductType productType) {
+	public Product(Integer productId, String name, ProductType productType, Boolean isBaseProduct) {
 		super();
 		this.productId = productId;
 		this.name = name;
 		this.productType = productType;
+		this.isBaseProduct = isBaseProduct;
 	}
 
 	public Integer getProductId() {
@@ -50,6 +52,14 @@ public class Product {
 
 	public void setProductType(ProductType productType) {
 		this.productType = productType;
+	}
+
+	public Boolean getIsBaseProduct() {
+		return isBaseProduct;
+	}
+
+	public void setIsBaseProduct(Boolean isBaseProduct) {
+		this.isBaseProduct = isBaseProduct;
 	}
 
 }

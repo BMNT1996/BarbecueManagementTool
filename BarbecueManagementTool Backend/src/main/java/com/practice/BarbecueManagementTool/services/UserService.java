@@ -12,18 +12,16 @@ import com.practice.BarbecueManagementTool.repository.UserRepository;
 @Service
 public class UserService implements UserDetailsService {
 
-//    @Autowired
-//    private PasswordEncoder encoder;
+	@Autowired
+	private UserRepository userRepository;
 
-    @Autowired
-    private UserRepository userRepository;
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		System.out.println("In the user details service");
 
-        System.out.println("In the user details service");
-
-        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("user is not valid"));
-    }
+		return userRepository.findByUsername(username)
+				.orElseThrow(() -> new UsernameNotFoundException("user is not valid"));
+	}
 
 }

@@ -1,66 +1,39 @@
 package com.practice.BarbecueManagementTool.models;
 
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "event_product_junction")
 public class EventProductJunction {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer eventProductJunctionId;
+	@EmbeddedId
+	private EventProductJunctionId eventProductJunctionId;
 
-	@ManyToOne
-	@JoinColumn(name = "event_id")
-	private Event event;
-	@ManyToOne
-	@JoinColumn(name = "product_id")
-	private Product product;
 	private Double quantity;
+	private Double price;
 	private DivisionType divisionType;
 
 	public EventProductJunction() {
 		super();
 	}
 
-	public EventProductJunction(Integer eventProductJunctionId, Event event, Product product, Double quantity,
+	public EventProductJunction(EventProductJunctionId eventProductJunctionId, Double quantity, Double price,
 			DivisionType divisionType) {
 		super();
 		this.eventProductJunctionId = eventProductJunctionId;
-		this.event = event;
-		this.product = product;
 		this.quantity = quantity;
+		this.price = price;
 		this.divisionType = divisionType;
 	}
 
-	public Integer getEventProductJunctionId() {
+	public EventProductJunctionId getEventProductJunctionId() {
 		return eventProductJunctionId;
 	}
 
-	public void setEventProductJunctionId(Integer eventProductJunctionId) {
+	public void setEventProductJunctionId(EventProductJunctionId eventProductJunctionId) {
 		this.eventProductJunctionId = eventProductJunctionId;
-	}
-
-	public Event getEvent() {
-		return event;
-	}
-
-	public void setEvent(Event event) {
-		this.event = event;
-	}
-
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
 	}
 
 	public Double getQuantity() {
@@ -69,6 +42,14 @@ public class EventProductJunction {
 
 	public void setQuantity(Double quantity) {
 		this.quantity = quantity;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
 	}
 
 	public DivisionType getDivisionType() {

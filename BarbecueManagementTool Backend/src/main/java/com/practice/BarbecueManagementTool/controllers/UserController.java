@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*")
 public class UserController {
 
-    @GetMapping("/")
-    public String helloUserController(){
-        return "User access level";
-    }
-    
+	@GetMapping("/")
+	public String helloUserController() {
+		return "User access level";
+	}
+
 }
