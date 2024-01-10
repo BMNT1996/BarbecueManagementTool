@@ -35,4 +35,7 @@ public interface EventProductJunctionRepository extends JpaRepository<EventProdu
 	@Transactional
 	void deleteEventProductJunctionByEventIdAndUserId(@Param("eventId") Integer eventId, @Param("productId") Integer productId);
 
+	@Query(value = "SELECT * FROM event_product_junction epj WHERE epj.event_id = ?1", nativeQuery = true)
+	List<EventProductJunction> getEventProductJunctionByEvent(Integer eventId);
+
 }

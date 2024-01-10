@@ -19,7 +19,10 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
 	Event findEventById(Integer id);
 
 	@Query(value = "SELECT * FROM events e WHERE e.event_code = ?1 ", nativeQuery = true)
-	List<Event> findEventByCode(String code);
+	Event findEventByCode(String code);
+
+	@Query(value = "SELECT eeuj.event_id, eeuj.name, eeuj.date, eeuj.event_code, eeuj.user_id, u.username, eeuj.accepted FROM (SELECT e.event_id, e.date, e.event_code, e.name, euj.accepted, euj.user_id FROM events e INNER JOIN event_user_junction euj ON e.event_id=euj.event_id) eeuj INNER JOIN users u ON eeuj.user_id=u.user_id WHERE u.username=?1 ", nativeQuery = true)
+	List<Object> getEventsByUsername(String username);
 
 	@Modifying
 	@Query(value = "DELETE FROM events e WHERE e.event_id = :#{#event.eventId}", nativeQuery = true)
@@ -35,5 +38,4 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
 	@Query(value = "UPDATE events SET name=:#{#event.name}, event_code=:#{#event.eventCode}, date=:#{#event.date} where event_id = :#{#event.eventId}", nativeQuery = true)
 	@Transactional
 	void updateEvent(@Param("event") Event event);
-
 }

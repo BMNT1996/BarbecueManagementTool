@@ -12,6 +12,10 @@ import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.practice.BarbecueManagementTool.models.ApplicationUser;
+
 @Service
 public class TokenService {
 
@@ -26,7 +30,7 @@ public class TokenService {
 				.collect(Collectors.joining(" "));
 
 		JwtClaimsSet claims = JwtClaimsSet.builder().issuer("self").issuedAt(now).subject(auth.getName())
-				.claim("roles", scope).build();
+				.claim("roles", scope).claim("userId", ((ApplicationUser)auth.getPrincipal()).getUserId()).build();
 
 		return jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
 	}

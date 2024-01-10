@@ -23,11 +23,11 @@ public class EventUserJunctionService {
 
 	public AddParticipantServiceResponse AddParticipant(AddParticipantServiceRequest request) {
 		try {
-			eventUserJunctionRepository.addEventUserJunction(request.getEvent().getEventId(),
-					request.getUser().getUserId(), request.getAccepted(), false);
+			eventUserJunctionRepository.addEventUserJunction(request.getEventId(),
+					request.getUserId(), request.getAccepted(), false);
 			List<EventUserJunction> dbParticipations = eventUserJunctionRepository
-					.getEventUserJunctionByEventIdAndUserId(request.getEvent().getEventId(),
-							request.getUser().getUserId());
+					.getEventUserJunctionByEventIdAndUserId(request.getEventId(),
+							request.getUserId());
 			return new AddParticipantServiceResponse(dbParticipations.isEmpty() ? null : dbParticipations.get(0));
 		} catch (Exception e) {
 			System.out.println(e);

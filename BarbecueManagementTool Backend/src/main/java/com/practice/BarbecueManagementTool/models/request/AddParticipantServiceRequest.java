@@ -1,39 +1,36 @@
 package com.practice.BarbecueManagementTool.models.request;
 
-import com.practice.BarbecueManagementTool.models.ApplicationUser;
-import com.practice.BarbecueManagementTool.models.Event;
-
 public class AddParticipantServiceRequest {
 
-	private Event event;
-	private ApplicationUser user;
+	private Integer eventId;
+	private Integer userId;
 	private Boolean accepted;
 
 	public AddParticipantServiceRequest() {
 		super();
 	}
 
-	public AddParticipantServiceRequest(Event event, ApplicationUser user, Boolean accepted) {
+	public AddParticipantServiceRequest(Integer eventId, Integer userId, Boolean accepted) {
 		super();
-		this.event = event;
-		this.user = user;
+		this.eventId = eventId;
+		this.userId = userId;
 		this.accepted = accepted;
 	}
 
-	public Event getEvent() {
-		return event;
+	public Integer getEventId() {
+		return eventId;
 	}
 
-	public void setEvent(Event event) {
-		this.event = event;
+	public void setEventId(Integer eventId) {
+		this.eventId = eventId;
 	}
 
-	public ApplicationUser getUser() {
-		return user;
+	public Integer getUserId() {
+		return userId;
 	}
 
-	public void setUser(ApplicationUser user) {
-		this.user = user;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
 	public Boolean getAccepted() {

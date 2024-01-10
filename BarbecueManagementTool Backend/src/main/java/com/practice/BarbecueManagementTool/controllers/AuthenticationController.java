@@ -22,11 +22,15 @@ public class AuthenticationController {
 
 	@PostMapping("/register")
 	public ApplicationUser registerUser(@RequestBody RegistrationDTO body) {
+		System.out.println("RegisterUser started");
+		System.out.println(body);
 		return authenticationService.registerUser(body.getUsername(), body.getPassword());
 	}
 
 	@PostMapping("/login")
 	public LoginResponseDTO loginUser(@RequestBody RegistrationDTO body) {
+		System.out.println("RegisterUser started");
+		System.out.println(body);
 		return authenticationService.loginUser(body.getUsername(), body.getPassword());
 	}
 }
