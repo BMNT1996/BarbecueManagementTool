@@ -4,6 +4,13 @@ import java.util.ArrayList;
 
 import com.practice.BarbecueManagementTool.models.EventInformation;
 
+/**
+ * Response model for GetDashboardInformation Service
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 public class GetDashboardInformationServiceResponse {
 
 	private int numberOfEvents;

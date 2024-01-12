@@ -1,5 +1,12 @@
 package com.practice.BarbecueManagementTool.models;
 
+/**
+ * DTO class for the EventInformation
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 public class EventInformation {
 	private Integer id;
 	private String name;
@@ -8,10 +15,23 @@ public class EventInformation {
 	private Double expenses;
 	private String status;
 
+	/**
+	 * Constructor without attributes
+	 */
 	public EventInformation() {
 		super();
 	}
 
+	/**
+	 * Constructor with attributes
+	 * 
+	 * @param id Event's Id
+	 * @param name Event's name
+	 * @param date Event's date
+	 * @param code Event's code
+	 * @param expenses Event's total expenses
+	 * @param status Event's payment status
+	 */
 	public EventInformation(Integer id, String name, String date, String code, Double expenses, String status) {
 		super();
 		this.id = id;

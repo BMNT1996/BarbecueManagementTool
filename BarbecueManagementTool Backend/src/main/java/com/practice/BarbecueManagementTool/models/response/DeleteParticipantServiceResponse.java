@@ -2,6 +2,13 @@ package com.practice.BarbecueManagementTool.models.response;
 
 import com.practice.BarbecueManagementTool.models.EventUserJunction;
 
+/**
+ * Response model for DeleteParticipant Service
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 public class DeleteParticipantServiceResponse {
 
 	private EventUserJunction eventUserJunction;

@@ -15,13 +15,20 @@ import com.practice.BarbecueManagementTool.models.response.DeleteParticipantServ
 import com.practice.BarbecueManagementTool.models.response.UpdateParticipantServiceResponse;
 import com.practice.BarbecueManagementTool.repository.EventUserJunctionRepository;
 
+/**
+ * Service class for Event/User junction
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 @Service
 public class EventUserJunctionService {
 
 	@Autowired
 	private EventUserJunctionRepository eventUserJunctionRepository;
 
-	public AddParticipantServiceResponse AddParticipant(AddParticipantServiceRequest request) {
+	public AddParticipantServiceResponse addParticipant(AddParticipantServiceRequest request) {
 		try {
 			eventUserJunctionRepository.addEventUserJunction(request.getEventId(),
 					request.getUserId(), request.getAccepted(), false);
@@ -35,7 +42,7 @@ public class EventUserJunctionService {
 		}
 	}
 
-	public UpdateParticipantServiceResponse UpdateParticipant(UpdateParticipantServiceRequest request) {
+	public UpdateParticipantServiceResponse updateParticipant(UpdateParticipantServiceRequest request) {
 		try {
 			eventUserJunctionRepository.updateEventUserJunction(
 					request.getEventUserJunction().getEventUserJunctionId().getEvent().getEventId(),
@@ -52,7 +59,7 @@ public class EventUserJunctionService {
 		}
 	}
 
-	public DeleteParticipantServiceResponse DeleteParticipant(DeleteParticipantServiceRequest request) {
+	public DeleteParticipantServiceResponse deleteParticipant(DeleteParticipantServiceRequest request) {
 		try {
 			EventUserJunctionId participationId = request.getEventUserJunction().getEventUserJunctionId();
 			eventUserJunctionRepository.deleteEventUserJunctionByEventIdAndUserId(

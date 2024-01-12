@@ -15,13 +15,20 @@ import com.practice.BarbecueManagementTool.models.response.DeleteEventProductSer
 import com.practice.BarbecueManagementTool.models.response.UpdateEventProductServiceResponse;
 import com.practice.BarbecueManagementTool.repository.EventProductJunctionRepository;
 
+/**
+ * Service class for Event/Product junction
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 @Service
 public class EventProductJunctionService {
 
 	@Autowired
 	private EventProductJunctionRepository eventProductJunctionRepository;
 
-	public AddEventProductServiceResponse AddEventProduct(AddEventProductServiceRequest request) {
+	public AddEventProductServiceResponse addEventProduct(AddEventProductServiceRequest request) {
 		try {
 			eventProductJunctionRepository.addEventProductJunction(request.getEvent().getEventId(),
 					request.getProduct().getProductId(), request.getQuantity(), request.getPrice(),
@@ -36,7 +43,7 @@ public class EventProductJunctionService {
 		}
 	}
 
-	public UpdateEventProductServiceResponse UpdateEventProduct(UpdateEventProductServiceRequest request) {
+	public UpdateEventProductServiceResponse updateEventProduct(UpdateEventProductServiceRequest request) {
 		try {
 			EventProductJunctionId eventProductId = request.getEventProductJunction().getEventProductJunctionId();
 			eventProductJunctionRepository.updateEventProductJunction(eventProductId.getEvent().getEventId(),
@@ -52,7 +59,7 @@ public class EventProductJunctionService {
 		}
 	}
 
-	public DeleteEventProductServiceResponse DeleteEventProduct(DeleteEventProductServiceRequest request) {
+	public DeleteEventProductServiceResponse deleteEventProduct(DeleteEventProductServiceRequest request) {
 		try {
 			EventProductJunctionId eventProduct = request.getEventProductJunction().getEventProductJunctionId();
 			eventProductJunctionRepository.deleteEventProductJunctionByEventIdAndUserId(

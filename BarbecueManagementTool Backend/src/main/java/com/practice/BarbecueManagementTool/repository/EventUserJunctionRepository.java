@@ -6,11 +6,20 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.practice.BarbecueManagementTool.models.EventUserJunction;
 import com.practice.BarbecueManagementTool.models.EventUserJunctionId;
 
+/**
+ * Repository for Event/User junction
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
+@Repository
 public interface EventUserJunctionRepository extends JpaRepository<EventUserJunction, EventUserJunctionId> {
 
 	@Query(value = "SELECT * FROM event_user_junction euj WHERE euj.event_id = ?1 AND euj.user_id = ?2", nativeQuery = true)
@@ -36,4 +45,7 @@ public interface EventUserJunctionRepository extends JpaRepository<EventUserJunc
 	@Query(value = "DELETE FROM event_user_junction euj WHERE euj.event_id = :#{#id}", nativeQuery = true)
 	@Transactional
 	void deleteEventUserJunctionByEventId(Integer id);
+	
+	@Query(value = "SELECT * FROM event_user_junction euj WHERE euj.event_id = ?1", nativeQuery = true)
+	List<EventUserJunction> getEventUserJunctionByEventId(Integer eventId);
 }

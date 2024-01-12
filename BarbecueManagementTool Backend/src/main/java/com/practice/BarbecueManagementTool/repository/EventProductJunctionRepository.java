@@ -12,6 +12,13 @@ import com.practice.BarbecueManagementTool.models.DivisionType;
 import com.practice.BarbecueManagementTool.models.EventProductJunction;
 import com.practice.BarbecueManagementTool.models.EventProductJunctionId;
 
+/**
+ * Repository for Event/Product junction
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 public interface EventProductJunctionRepository extends JpaRepository<EventProductJunction, EventProductJunctionId> {
 
 	@Query(value = "SELECT * FROM event_product_junction epj WHERE epj.event_id = ?1 AND epj.product_id = ?2", nativeQuery = true)

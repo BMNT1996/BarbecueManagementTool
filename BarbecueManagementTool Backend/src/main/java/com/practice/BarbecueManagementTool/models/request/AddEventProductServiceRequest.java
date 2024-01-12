@@ -4,6 +4,13 @@ import com.practice.BarbecueManagementTool.models.DivisionType;
 import com.practice.BarbecueManagementTool.models.Event;
 import com.practice.BarbecueManagementTool.models.Product;
 
+/**
+ * Request model for AddEventProduct Service
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 public class AddEventProductServiceRequest {
 
 	private Event event;

@@ -6,9 +6,16 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
+/**
+ * Model class for the Event (For future implementation)
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 @Entity
 @Table(name = "sujestions")
-public class Sujestions {
+public class Suggestions {
 
 	@Id
 	@OneToOne
@@ -18,17 +25,27 @@ public class Sujestions {
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private ApplicationUser user;
-	private String sujestion;
+	private String suggestion;
 
-	public Sujestions() {
+	/**
+	 * Constructor without attributes
+	 */
+	public Suggestions() {
 		super();
 	}
 
-	public Sujestions(Event event, ApplicationUser user, String sujestion) {
+	/**
+	 * Constructor with attributes
+	 * 
+	 * @param event
+	 * @param user
+	 * @param suggestion
+	 */
+	public Suggestions(Event event, ApplicationUser user, String suggestion) {
 		super();
 		this.event = event;
 		this.user = user;
-		this.sujestion = sujestion;
+		this.suggestion = suggestion;
 	}
 
 	public Event getEvent() {
@@ -47,12 +64,12 @@ public class Sujestions {
 		this.user = user;
 	}
 
-	public String getSujestion() {
-		return sujestion;
+	public String getSuggestion() {
+		return suggestion;
 	}
 
-	public void setSujestion(String sujestion) {
-		this.sujestion = sujestion;
+	public void setSuggestion(String suggestion) {
+		this.suggestion = suggestion;
 	}
 
 }

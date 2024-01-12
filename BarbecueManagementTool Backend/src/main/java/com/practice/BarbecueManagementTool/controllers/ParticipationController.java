@@ -17,6 +17,13 @@ import com.practice.BarbecueManagementTool.models.request.DeleteParticipantServi
 import com.practice.BarbecueManagementTool.models.request.UpdateParticipantServiceRequest;
 import com.practice.BarbecueManagementTool.services.EventUserJunctionService;
 
+/**
+ * Class with the controller for the EventUserJunction
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 @RestController
 @RequestMapping("/participation")
 @CrossOrigin("*")
@@ -25,40 +32,49 @@ public class ParticipationController {
 	@Autowired
 	private EventUserJunctionService eventUserJunctionService;
 
+	/**
+	 * Method to add a new junction between Event and User
+	 * 
+	 * @param request Request model with the junction information
+	 * @return Response model as JsonString of the junction created
+	 */
 	@PostMapping("/add")
-	public String AddParticipant(@RequestBody AddParticipantServiceRequest request) {
-		ObjectMapper objectMapper = new ObjectMapper();
-		objectMapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
+	public String addParticipant(@RequestBody AddParticipantServiceRequest request) {
 		try {
-			return objectMapper.registerModule(new JavaTimeModule()).writerWithDefaultPrettyPrinter()
-					.writeValueAsString(eventUserJunctionService.AddParticipant(request));
-		} catch (JsonProcessingException e) {
+			return ControllerUtils.objectToJsonString(eventUserJunctionService.addParticipant(request));
+		} catch (Exception e) {
 			e.printStackTrace();
 			return "error 500";
 		}
 	}
 
+	/**
+	 * Method to update an existent junction between Event and User in the database
+	 * 
+	 * @param request Request model with the junction updated
+	 * @return Response model with the junction updated confirmed
+	 */
 	@PostMapping("/update")
-	public String UpdateParticipant(@RequestBody UpdateParticipantServiceRequest request) {
-		ObjectMapper objectMapper = new ObjectMapper();
-		objectMapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
+	public String updateParticipant(@RequestBody UpdateParticipantServiceRequest request) {
 		try {
-			return objectMapper.registerModule(new JavaTimeModule()).writerWithDefaultPrettyPrinter()
-					.writeValueAsString(eventUserJunctionService.UpdateParticipant(request));
-		} catch (JsonProcessingException e) {
+			return ControllerUtils.objectToJsonString(eventUserJunctionService.updateParticipant(request));
+		} catch (Exception e) {
 			e.printStackTrace();
 			return "error 500";
 		}
 	}
 
+	/**
+	 * Method to delete an existent junction between Event and User in the database
+	 * 
+	 * @param request Request model with the junction between Event and User to be deleted
+	 * @return Response model as Json String with the junction between Event and User that was deleted
+	 */
 	@PostMapping("/delete")
-	public String DeleteParticipant(@RequestBody DeleteParticipantServiceRequest request) {
-		ObjectMapper objectMapper = new ObjectMapper();
-		objectMapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
+	public String deleteParticipant(@RequestBody DeleteParticipantServiceRequest request) {
 		try {
-			return objectMapper.registerModule(new JavaTimeModule()).writerWithDefaultPrettyPrinter()
-					.writeValueAsString(eventUserJunctionService.DeleteParticipant(request));
-		} catch (JsonProcessingException e) {
+			return ControllerUtils.objectToJsonString(eventUserJunctionService.deleteParticipant(request));
+		} catch (Exception e) {
 			e.printStackTrace();
 			return "error 500";
 		}

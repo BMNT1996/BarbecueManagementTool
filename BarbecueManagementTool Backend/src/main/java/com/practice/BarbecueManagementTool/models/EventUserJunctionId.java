@@ -4,6 +4,13 @@ import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+/**
+ * Model class for the Event/User junction Id
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 @Embeddable
 public class EventUserJunctionId {
 
@@ -15,10 +22,19 @@ public class EventUserJunctionId {
 	@JoinColumn(name = "user_id")
 	private ApplicationUser user;
 
+	/**
+	 * Constructor without attributes
+	 */
 	public EventUserJunctionId() {
 		super();
 	}
 
+	/**
+	 * Constructor with attributes
+	 * 
+	 * @param event Event of the junction
+	 * @param user User of the junction
+	 */
 	public EventUserJunctionId(Event event, ApplicationUser user) {
 		super();
 		this.event = event;

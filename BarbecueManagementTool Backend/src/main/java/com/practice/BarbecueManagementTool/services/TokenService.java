@@ -16,6 +16,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.practice.BarbecueManagementTool.models.ApplicationUser;
 
+/**
+ * Service class for Token
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 @Service
 public class TokenService {
 

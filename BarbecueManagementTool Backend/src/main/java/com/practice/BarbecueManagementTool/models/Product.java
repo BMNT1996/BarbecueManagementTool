@@ -7,6 +7,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/**
+ * Model class for the Product
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 @Entity
 @Table(name = "products")
 public class Product {
@@ -18,10 +25,21 @@ public class Product {
 	private ProductType productType;
 	private Boolean isBaseProduct;
 
+	/**
+	 * Constructor without attributes
+	 */
 	public Product() {
 		super();
 	}
 
+	/**
+	 * Constructor with attributes
+	 * 
+	 * @param productId
+	 * @param name
+	 * @param productType
+	 * @param isBaseProduct
+	 */
 	public Product(Integer productId, String name, ProductType productType, Boolean isBaseProduct) {
 		super();
 		this.productId = productId;

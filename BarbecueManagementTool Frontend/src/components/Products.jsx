@@ -1,7 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Style.css'
+import axios from 'axios'
 
 function Products() {
+    const [productList, setProductList] = useState([])
+
+    useEffect(() => {
+        axios.get("http://localhost:4000/product/").then(resp => setProductList(resp.data))
+    }, []);
+
+    const handleRows = () => {
+        console.log(productList)
+        return productList.map(product =>
+            <tr key={product.productId}>
+                <th scope="row">{product.productId}</th>
+                <td>{product.name}</td>
+                <td>{product.productType}</td>
+                <td></td>
+            </tr>
+        )
+    }
+
     return (
         <div>
             <table className="table caption-top bg-white rounded mt-2">
@@ -15,18 +34,7 @@ function Products() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Coca-Cola</td>
-                        <td>Drink</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Cow</td>
-                        <td>Food</td>
-                        <td></td>
-                    </tr>
+                    {handleRows()}
                 </tbody>
             </table>
         </div>

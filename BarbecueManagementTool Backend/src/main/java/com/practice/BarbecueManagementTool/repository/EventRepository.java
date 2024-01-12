@@ -11,6 +11,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.practice.BarbecueManagementTool.models.Event;
 
+/**
+ * Repository for Event
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 @Repository
 public interface EventRepository extends JpaRepository<Event, Integer> {
 	List<Event> findAll();

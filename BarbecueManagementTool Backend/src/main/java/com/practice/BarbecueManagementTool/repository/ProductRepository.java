@@ -12,6 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.practice.BarbecueManagementTool.models.Product;
 
+/**
+ * Repository for Product
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 	@Query(value = "SELECT * FROM products", nativeQuery = true)

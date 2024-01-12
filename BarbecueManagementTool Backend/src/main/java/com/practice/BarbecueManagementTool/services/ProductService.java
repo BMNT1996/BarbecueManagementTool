@@ -14,6 +14,13 @@ import com.practice.BarbecueManagementTool.models.response.DeleteProductServiceR
 import com.practice.BarbecueManagementTool.models.response.UpdateProductServiceResponse;
 import com.practice.BarbecueManagementTool.repository.ProductRepository;
 
+/**
+ * Service class for Product
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 @Service
 public class ProductService {
 
@@ -30,7 +37,7 @@ public class ProductService {
 
 	}
 
-	public CreateProductServiceResponse CreateProduct(CreateProductServiceRequest request) {
+	public CreateProductServiceResponse createProduct(CreateProductServiceRequest request) {
 		try {
 			Product product = productRepository
 					.save(new Product(null, request.getName(), request.getProductType(), request.getIsBaseProduct()));
@@ -41,7 +48,7 @@ public class ProductService {
 		}
 	}
 
-	public UpdateProductServiceResponse UpdateProduct(UpdateProductServiceRequest request) {
+	public UpdateProductServiceResponse updateProduct(UpdateProductServiceRequest request) {
 		try {
 			productRepository.updateProduct(request.getProduct());
 			;
@@ -52,7 +59,7 @@ public class ProductService {
 		}
 	}
 
-	public DeleteProductServiceResponse DeleteProduct(DeleteProductServiceRequest request) {
+	public DeleteProductServiceResponse deleteProduct(DeleteProductServiceRequest request) {
 		try {
 			productRepository.deleteProduct(request.getProduct());
 			return new DeleteProductServiceResponse(request.getProduct());

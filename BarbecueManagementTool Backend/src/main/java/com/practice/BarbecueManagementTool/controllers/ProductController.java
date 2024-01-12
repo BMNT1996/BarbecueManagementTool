@@ -21,6 +21,13 @@ import com.practice.BarbecueManagementTool.models.request.DeleteProductServiceRe
 import com.practice.BarbecueManagementTool.models.request.UpdateProductServiceRequest;
 import com.practice.BarbecueManagementTool.services.ProductService;
 
+/**
+ * Class with the controller for the Products
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 @RestController
 @RequestMapping("/product")
 @CrossOrigin("*")
@@ -29,45 +36,59 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 
+	/**
+	 * Method to get all the products in the database
+	 * 
+	 * @return Response model as Json String with the list of all products
+	 */
 	@GetMapping("/")
-	public Set<Product> helloUserController() {
+	public Set<Product> GetAllProducts() {
 		return productService.getAllProducts();
 	}
 
+	/**
+	 * Method to create a new product in the database.
+	 * 
+	 * @param request Request model with the product
+	 * @return Response model as Json String with the product created
+	 */
 	@PostMapping("/create")
-	public String CreateProduct(@RequestBody CreateProductServiceRequest request) {
-		ObjectMapper objectMapper = new ObjectMapper();
-		objectMapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
+	public String createProduct(@RequestBody CreateProductServiceRequest request) {
 		try {
-			return objectMapper.registerModule(new JavaTimeModule()).writerWithDefaultPrettyPrinter()
-					.writeValueAsString(productService.CreateProduct(request));
-		} catch (JsonProcessingException e) {
+			return ControllerUtils.objectToJsonString(productService.createProduct(request));
+		} catch (Exception e) {
 			e.printStackTrace();
 			return "error 500";
 		}
 	}
 
+	/**
+	 * Method to update an existent product in the database.
+	 * 
+	 * @param request Request model with the product updated
+	 * @return Response model as Json String with the product updated confirmation
+	 */
 	@PostMapping("/update")
-	public String UpdateProduct(@RequestBody UpdateProductServiceRequest request) {
-		ObjectMapper objectMapper = new ObjectMapper();
-		objectMapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
+	public String updateProduct(@RequestBody UpdateProductServiceRequest request) {
 		try {
-			return objectMapper.registerModule(new JavaTimeModule()).writerWithDefaultPrettyPrinter()
-					.writeValueAsString(productService.UpdateProduct(request));
-		} catch (JsonProcessingException e) {
+			return ControllerUtils.objectToJsonString(productService.updateProduct(request));
+		} catch (Exception e) {
 			e.printStackTrace();
 			return "error 500";
 		}
 	}
 
+	/**
+	 * Method to delete an existent product in the database
+	 * 
+	 * @param request Request model with the product to be deleted
+	 * @return Response model as Json String with the product that was deleted
+	 */
 	@PostMapping("/delete")
-	public String DeleteProduct(@RequestBody DeleteProductServiceRequest request) {
-		ObjectMapper objectMapper = new ObjectMapper();
-		objectMapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
+	public String deleteProduct(@RequestBody DeleteProductServiceRequest request) {
 		try {
-			return objectMapper.registerModule(new JavaTimeModule()).writerWithDefaultPrettyPrinter()
-					.writeValueAsString(productService.DeleteProduct(request));
-		} catch (JsonProcessingException e) {
+			return ControllerUtils.objectToJsonString(productService.deleteProduct(request));
+		} catch (Exception e) {
 			e.printStackTrace();
 			return "error 500";
 		}

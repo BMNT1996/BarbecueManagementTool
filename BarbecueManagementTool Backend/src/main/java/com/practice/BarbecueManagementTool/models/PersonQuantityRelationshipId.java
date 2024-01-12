@@ -4,6 +4,13 @@ import jakarta.persistence.Embeddable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+/**
+ * Class with the person/quantity relationship Id (For future implementation)
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 @Embeddable
 public class PersonQuantityRelationshipId {
 
@@ -17,10 +24,20 @@ public class PersonQuantityRelationshipId {
 	@JoinColumn(name = "product_id")
 	private Product product;
 
+	/**
+	 * Constructor without attributes
+	 */
 	public PersonQuantityRelationshipId() {
 		super();
 	}
 
+	/**
+	 * Constructor with attributes
+	 * 
+	 * @param user User of the junction
+	 * @param event Event of the junction
+	 * @param product Product of the junction
+	 */
 	public PersonQuantityRelationshipId(ApplicationUser user, Event event, Product product) {
 		super();
 		this.user = user;

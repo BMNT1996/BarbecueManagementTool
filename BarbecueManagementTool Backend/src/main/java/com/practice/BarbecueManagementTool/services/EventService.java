@@ -11,21 +11,31 @@ import org.springframework.stereotype.Service;
 import com.practice.BarbecueManagementTool.models.Event;
 import com.practice.BarbecueManagementTool.models.EventInformation;
 import com.practice.BarbecueManagementTool.models.EventProductJunction;
+import com.practice.BarbecueManagementTool.models.EventUserJunction;
 import com.practice.BarbecueManagementTool.models.request.CreateEventServiceRequest;
 import com.practice.BarbecueManagementTool.models.request.DeleteEventServiceRequest;
 import com.practice.BarbecueManagementTool.models.request.GetDashboardInformationServiceRequest;
 import com.practice.BarbecueManagementTool.models.request.GetEventByCodeServiceRequest;
+import com.practice.BarbecueManagementTool.models.request.GetEventPeopleAndProductsByEventCodeServiceRequest;
 import com.practice.BarbecueManagementTool.models.request.UpdateEventServiceRequest;
 import com.practice.BarbecueManagementTool.models.response.CreateEventServiceResponse;
 import com.practice.BarbecueManagementTool.models.response.DeleteEventServiceResponse;
 import com.practice.BarbecueManagementTool.models.response.GetAllEventsServiceResponse;
 import com.practice.BarbecueManagementTool.models.response.GetDashboardInformationServiceResponse;
 import com.practice.BarbecueManagementTool.models.response.GetEventByCodeServiceResponse;
+import com.practice.BarbecueManagementTool.models.response.GetEventPeopleAndProductsByEventCodeServiceResponse;
 import com.practice.BarbecueManagementTool.models.response.UpdateEventServiceResponse;
 import com.practice.BarbecueManagementTool.repository.EventProductJunctionRepository;
 import com.practice.BarbecueManagementTool.repository.EventRepository;
 import com.practice.BarbecueManagementTool.repository.EventUserJunctionRepository;
 
+/**
+ * Service class for Event
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 @Service
 public class EventService {
 
@@ -136,6 +146,18 @@ public class EventService {
 		try {
 			Event event = eventRepository.findEventByCode(request.getCode());
 			return new GetEventByCodeServiceResponse(event);
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+	}
+	
+	public GetEventPeopleAndProductsByEventCodeServiceResponse GetEventPeopleAndProductsByEventCode(GetEventPeopleAndProductsByEventCodeServiceRequest request) {
+		try {
+			Event event = eventRepository.findEventByCode(request.getCode());
+			List<EventUserJunction> people = eventUserJunctionRepository.getEventUserJunctionByEventId(event.getEventId());
+			List<EventProductJunction> products = eventProductJunctionRepository.getEventProductJunctionByEvent(event.getEventId());
+			return new GetEventPeopleAndProductsByEventCodeServiceResponse(event, people, products);
 		} catch (Exception e) {
 			System.out.println(e);
 			return null;

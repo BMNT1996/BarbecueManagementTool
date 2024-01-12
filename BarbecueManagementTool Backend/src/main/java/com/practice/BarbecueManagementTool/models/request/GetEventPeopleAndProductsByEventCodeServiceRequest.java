@@ -1,21 +1,21 @@
 package com.practice.BarbecueManagementTool.models.request;
 
 /**
- * Request model for GetEventByCode Service
+ * Request model for GetEventPeopleAndProductsByEvent Service
  * 
  * @author Bruno Teles
  * @version 0.1
  * @since 2024-01-12
  */
-public class GetEventByCodeServiceRequest {
+public class GetEventPeopleAndProductsByEventCodeServiceRequest {
 
 	private String code;
 
-	public GetEventByCodeServiceRequest() {
+	public GetEventPeopleAndProductsByEventCodeServiceRequest() {
 		super();
 	}
 
-	public GetEventByCodeServiceRequest(String code) {
+	public GetEventPeopleAndProductsByEventCodeServiceRequest(String code) {
 		super();
 		this.code = code;
 	}

@@ -4,6 +4,13 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
+/**
+ * Model class for the Event/Product junction
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 @Entity
 @Table(name = "event_product_junction")
 public class EventProductJunction {
@@ -15,10 +22,21 @@ public class EventProductJunction {
 	private Double price;
 	private DivisionType divisionType;
 
+	/**
+	 * Constructor without attributes
+	 */
 	public EventProductJunction() {
 		super();
 	}
 
+	/**
+	 * Constructor with attributes
+	 * 
+	 * @param eventProductJunctionId Id
+	 * @param quantity Quantity of products
+	 * @param price Price for each product
+	 * @param divisionType Type of division (For future implementation)
+	 */
 	public EventProductJunction(EventProductJunctionId eventProductJunctionId, Double quantity, Double price,
 			DivisionType divisionType) {
 		super();

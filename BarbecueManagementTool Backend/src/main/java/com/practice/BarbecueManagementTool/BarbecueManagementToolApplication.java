@@ -14,6 +14,13 @@ import com.practice.BarbecueManagementTool.models.Role;
 import com.practice.BarbecueManagementTool.repository.RoleRepository;
 import com.practice.BarbecueManagementTool.repository.UserRepository;
 
+/**
+ * 
+ * 
+ * @author Bruno Teles
+ * @version 0.1
+ * @since 2024-01-12
+ */
 @SpringBootApplication
 public class BarbecueManagementToolApplication {
 	public static void main(String[] args) {
