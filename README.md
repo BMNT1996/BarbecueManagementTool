@@ -1,9 +1,7 @@
 # BarbecueManagementTool
 Project to manage barbecues and practice some programming skills
 
-#Screenshots
-
-#Screenshots
+## Screenshots
 | Description         | Image                                                                                                                                |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | Welcome Screen      | <img src="https://github.com/BMNT1996/BarbecueManagementTool/blob/main/ScreenShots/Welcome%20Screen.png?raw=true" width="1000">       |
@@ -17,12 +15,12 @@ Project to manage barbecues and practice some programming skills
 | Products            | <img src="https://github.com/BMNT1996/BarbecueManagementTool/blob/main/ScreenShots/Product%20List.png?raw=true" width="1000">         |
 
 
-# Done
+## Done
 - Basic functionalities
 - Most of the front-end interface
 - Controllers documentation
 
-# TODO List
+## TODO List
 - Fix bug with date
 - Update event functionality
 - Product management (multiple functionalities required)
@@ -30,7 +28,7 @@ Project to manage barbecues and practice some programming skills
 - Refactoring some classes and methods
 - JUnit tests
 
-# Functionalities
+## Functionalities
 - Create/Login Account
 - Dashboard
 - Create/Join Event
@@ -39,5 +37,5 @@ Project to manage barbecues and practice some programming skills
 - List products
 - Add products to event
 
-# Author
+## Author
 - [@bmnt1996](https://www.github.com/bmnt1996)
