@@ -57,7 +57,7 @@ public class EventController {
 	@PostMapping("/create")
 	public String createEvent(@RequestBody CreateEventServiceRequest request) {
 		System.out.println("CreateEvent started");
-		System.out.println(ControllerUtils.objectToJsonString(request));
+		System.out.println(request.getClass().getSimpleName().toString() + ControllerUtils.objectToJsonString(request));
 		try {
 			return ControllerUtils.objectToJsonString(eventService.createEvent(request));
 		} catch (Exception e) {
@@ -75,7 +75,7 @@ public class EventController {
 	@PostMapping("/update")
 	public String updateEvent(@RequestBody UpdateEventServiceRequest request) {
 		System.out.println("UpdateEvent started");
-		System.out.println(ControllerUtils.objectToJsonString(request));
+		System.out.println(request.getClass().getSimpleName().toString() + ControllerUtils.objectToJsonString(request));
 		try {
 			return ControllerUtils.objectToJsonString(eventService.updateEvent(request));
 		} catch (Exception e) {
@@ -93,7 +93,7 @@ public class EventController {
 	@PostMapping("/delete")
 	public String deleteEvent(@RequestBody DeleteEventServiceRequest request) {
 		System.out.println("DeleteEvent started");
-		System.out.println(ControllerUtils.objectToJsonString(request));
+		System.out.println(request.getClass().getSimpleName().toString() + ControllerUtils.objectToJsonString(request));
 		try {
 			return ControllerUtils.objectToJsonString(eventService.deleteEvent(request));
 		} catch (Exception e) {
@@ -111,7 +111,7 @@ public class EventController {
 	@PostMapping("/getdashboardinformation")
 	public String getDashBoardInformation(@RequestBody GetDashboardInformationServiceRequest request) {
 		System.out.println("GetDashBoardInformation started");
-		System.out.println(ControllerUtils.objectToJsonString(request));
+		System.out.println(request.getClass().getSimpleName().toString() + ControllerUtils.objectToJsonString(request));
 		try {
 			return ControllerUtils.objectToJsonString(eventService.getDashboardInformation(request));
 		} catch (Exception e) {
@@ -129,7 +129,7 @@ public class EventController {
 	@PostMapping("/geteventbycode")
 	public String getEventByCode(@RequestBody GetEventByCodeServiceRequest request) {
 		System.out.println("GetEventByCode started");
-		System.out.println(ControllerUtils.objectToJsonString(request));
+		System.out.println(request.getClass().getSimpleName().toString() + ControllerUtils.objectToJsonString(request));
 		try {
 			return ControllerUtils.objectToJsonString(eventService.GetEventByCode(request));
 		} catch (Exception e) {
@@ -147,7 +147,7 @@ public class EventController {
 	@PostMapping("/geteventpeopleandproductsbyeventcode")
 	public String getEventPeopleAndProductsByEventCode(@RequestBody GetEventPeopleAndProductsByEventCodeServiceRequest request) {
 		System.out.println("GetEventPeopleAndProductsByEventCode started");
-		System.out.println(ControllerUtils.objectToJsonString(request));
+		System.out.println(request.getClass().getSimpleName().toString() + ControllerUtils.objectToJsonString(request));
 		try {
 			return ControllerUtils.objectToJsonString(eventService.GetEventPeopleAndProductsByEventCode(request));
 		} catch (Exception e) {

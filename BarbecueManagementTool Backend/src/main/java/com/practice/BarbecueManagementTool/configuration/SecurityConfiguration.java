@@ -27,6 +27,7 @@ import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
 import com.practice.BarbecueManagementTool.utils.RSAKeyProperties;
 
+@Configuration
 public class SecurityConfiguration {
 
 	private final RSAKeyProperties keys;

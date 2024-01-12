@@ -19,9 +19,9 @@ export default class Login extends Component {
     this.state = {
       isLogin: true,
       user: {
-        name: "Rafael",
+        name: "",
         email: "",
-        password: "12345",
+        password: "",
         passwordConfirmation: ""
       }
     }
@@ -144,9 +144,6 @@ export default class Login extends Component {
             <div className="d-flex flex-row-reverse">
               <a className="switchText" onClick={this.switchMode}>{this.state.isLogin ? "Register" : "Login"}</a>
             </div>
-            <p className="subtitle">
-              <a onClick={this.props.login} href="#" className="btn btn-lg btn-light fw-bold border-white bg-white">Login / Register</a>
-            </p>
             <p className="mt-5 mb-3 text-body-secondary">&copy; 2023–{new Date().getFullYear()}</p>
           </form>
         </main>

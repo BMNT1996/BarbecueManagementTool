@@ -64,7 +64,6 @@ public class EventService {
 			String code = "";
 			while (nTry < 5) {
 				code = RandomStringUtils.randomAlphanumeric(5);
-				System.out.println(eventRepository.findEventByCode(code));
 				if (eventRepository.findEventByCode(code) == null) {
 					break;
 				} else {
@@ -115,9 +114,6 @@ public class EventService {
 				GetDashboardInformationServiceResponse response = new GetDashboardInformationServiceResponse();
 				events.forEach(event -> {
 					Object[] eventValues = (Object[]) event;
-					for(Object o : eventValues) {
-						System.out.println(o.toString());
-					}
 					if ((boolean) eventValues[6]) {
 						response.setNumberOfEvents(response.getNumberOfEvents() + 1);
 						List<EventProductJunction> products = eventProductJunctionRepository
