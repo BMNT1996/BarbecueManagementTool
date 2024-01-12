@@ -4,17 +4,17 @@ Project to manage barbecues and practice some programming skills
 #Screenshots
 
 #Screenshots
-| Description         | Image                                                  |
-| ------------------- | ------------------------------------------------------ |
-| Welcome Screen      | <img src="https://github.com/favicon.ico" width="48">  |
-| Login               | <img src="https://github.com/favicon.ico" width="48">  |
-| Register            | <img src="https://github.com/favicon.ico" width="48">  |
-| Dashboard           | <img src="https://github.com/favicon.ico" width="48">  |
-| Events              | <img src="https://github.com/favicon.ico" width="48">  |
-| Events No Owner     | <img src="https://github.com/favicon.ico" width="48">  |
-| Events Owner Accept | <img src="https://github.com/favicon.ico" width="48">  |
-| Events Owner Reject | <img src="https://github.com/favicon.ico" width="48">  |
-| Products            | <img src="https://github.com/favicon.ico" width="48">  |
+| Description         | Image                                                                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Welcome Screen      | <img src="https://github.com/BMNT1996/BarbecueManagementTool/blob/main/ScreenShots/Welcome%20Screen.png?raw=true" width="200">       |
+| Login               | <img src="https://github.com/BMNT1996/BarbecueManagementTool/blob/main/ScreenShots/Login.png?raw=true" width="200">                  |
+| Register            | <img src="https://github.com/BMNT1996/BarbecueManagementTool/blob/main/ScreenShots/Register.png?raw=true" width="200">               |
+| Dashboard           | <img src="https://github.com/BMNT1996/BarbecueManagementTool/blob/main/ScreenShots/Dashboard.png?raw=true" width="200">              |
+| Events              | <img src="https://github.com/BMNT1996/BarbecueManagementTool/blob/main/ScreenShots/Events.png?raw=true" width="200">                 |
+| Events No Owner     | <img src="https://github.com/BMNT1996/BarbecueManagementTool/blob/main/ScreenShots/Event%20No%20Owner.png?raw=true" width="200">     |
+| Events Owner Accept | <img src="https://github.com/BMNT1996/BarbecueManagementTool/blob/main/ScreenShots/Event%20No%20Owner.png?raw=true" width="200">     |
+| Events Owner Reject | <img src="https://github.com/BMNT1996/BarbecueManagementTool/blob/main/ScreenShots/Event%20Owner%20Reject.png?raw=true" width="200"> |
+| Products            | <img src="https://github.com/BMNT1996/BarbecueManagementTool/blob/main/ScreenShots/Product%20List.png?raw=true" width="200">         |
 
 
 # Done
